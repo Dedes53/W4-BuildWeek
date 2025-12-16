@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  background-image: url(../bg.jpg);
+  background-size: cover;
+  color: white;
+}
+header img {
+  width: 10rem;
+  margin-left: 5rem;
+}
+
+#titolo {
+  font-size: 64px;
+}
+
+h2 {
+  color: #c2128d;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+main {
+  margin: 5rem;
+  max-width: 3;
+}
+
+footer {
+  margin-top: 5rem;
+}
+button {
+  margin-left: 10rem;
+  background-color: #00ffff;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+input {
+  border-style: groove;
+}
