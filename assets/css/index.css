@@ -57,3 +57,19 @@ button:hover {
   transform: scale(1.1);
   box-shadow: 0px 0px 5px 5px #00ffff;
 }
+#checkRequired {
+  transform: scale(1.5);
+  appearance: none;
+  border: 2px solid white;
+  background-color: transparent;
+  width: 12px;
+  height: 12px;
+}
+#checkRequired:checked::after {
+  content: "\2714"; /* codice Unicode della spunta */
+  color: #c2128d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap");
+
+body {
+  background-image: url(../bg.jpg);
+  background-size: cover;
+  color: white;
+  min-height: 56rem;
+  font-family: "Outfit";
+  font-size: 25px;
+}
+
+main,
+footer {
+  text-align: center;
+}
+
+header img {
+  width: 10rem;
+  margin-left: 5rem;
+  margin-top: 3rem;
+}
+
+#stelle {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  margin: 0 5em; /* l'ultimo valore andrebbe modificato per risoluzioni a schermo interno da pc web, tipo a 25em */
+  justify-items: center;
+  height: 80px;
+  cursor: pointer;
+}
+#stelle img {
+  filter: brightness(0) saturate(100%) invert(10%) sepia(15%) saturate(5924%) hue-rotate(211deg) brightness(91%) contrast(106%);
+}
+
+button {
+  font-weight: bold;
+  background-color: #00ffff;
+  padding: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 5px 5px #00ffff;
+}
+
+form input {
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 600px;
+  color: white;
+  border-bottom: 3px solid #900080;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  font-size: 16px;
+  outline: none;
+}
+
+form div {
+  width: 100%;
+  margin-bottom: 2em;
+}
