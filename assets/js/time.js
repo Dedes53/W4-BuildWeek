@@ -3,7 +3,7 @@
 let time = 90;
 
 var bar = new ProgressBar.Circle("#container", {
-  color: "#000000ff",
+  color: "white",
   strokeWidth: 10,
   trailColor: "#ada9a9ff",
   trailWidth: 10,
