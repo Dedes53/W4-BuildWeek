@@ -19,17 +19,19 @@ header img {
   margin-left: 5rem;
   margin-top: 3rem;
 }
-
-#stelle {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  margin: 0 5em; /* l'ultimo valore andrebbe modificato per risoluzioni a schermo interno da pc web, tipo a 25em */
-  justify-items: center;
-  height: 80px;
-  cursor: pointer;
+#star-rating {
+  display: inline-block;
+  position: relative;
 }
-#stelle img {
-  filter: brightness(0) saturate(100%) invert(10%) sepia(15%) saturate(5924%) hue-rotate(211deg) brightness(91%) contrast(106%);
+
+#stelleVuote {
+  position: absolute;
+  /*  display: grid;
+  grid-template-columns: repeat(10, 1fr); */
+  /* margin: 0 5em; */ /* l'ultimo valore andrebbe modificato per risoluzioni a schermo interno da pc web, tipo a 25em */
+  /* justify-items: center;
+  height: 80px;
+  cursor: pointer; */
 }
 
 button {
