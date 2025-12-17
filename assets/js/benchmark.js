@@ -1,5 +1,11 @@
-//
-const qText = document.getElementById("question");
+//implementare funzioni timer: reset alla nuova domanda e passaggio alla domanda successiva se scaduto.
+
+//riferimenti al dom
+const qText = document.getElementById("question"); //domanda
+const quizContainer = document.getElementById("quiz"); //risposte
+const nextButton = document.getElementById("confirm"); //pulsante di conferma
+
+//domande
 const questions = [
   {
     category: "Science: Computers",
@@ -82,41 +88,95 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-let index = 0;
 
-function createQuestion(index) {
-  qText.textContent = questions[index].question; //abbiamo la domanda
-  let answers = []; //array da riempire con le possibili risposte
+//variabili
+let index = 0; //indice della domanda corrente
+let points = 0;
 
-  // dobbiamo ciclare e creare le risposte.
-  let correct_answer = document.createElement("p"); //risposta corretta creata e aggiunta all'Array
-  correct_answer.textContent = questions[index].correct_answer;
-  correct_answer.id = "correct";
-  answers.push(correct_answer);
-
-  for (let i = 0; i < questions[index].incorrect_answers.length; i++) {
-    //risposte errate create e aggiunte all'Array
-    let incorrect_answers = document.createElement("p");
-    incorrect_answers.textContent = questions[index].incorrect_answers[i];
-    answers.push(incorrect_answers);
-    // qText.appendChild(incorrect_answers);
-  }
-
-  return answers;
-}
-console.log(createQuestion(index));
-
-//mischiamo l'array in modo da avere un ordine casuale
+// Mescola casualmente gli elementi di un array
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-//stampiamo a schermo l'array shuffleato
-window.onload = function () {
-  const answers = createQuestion(index);
-  const shuffledAnswers = shuffleArray(answers);
+//funzione per creare le risposte
+function createAnswer(text, isCorrect, index, answers) {
+  const label = document.createElement("label");
+  label.style.display = "block";
 
-  shuffledAnswers.forEach((answer) => {
-    qText.appendChild(answer);
-  });
+  //radio button
+  const radio = document.createElement("input");
+  radio.type = "radio";
+  radio.name = "question-" + index; //forse superfluo
+  radio.value = text;
+
+  // se è la risposta corretta,
+  // aggiungiamo un data-attribute
+  if (isCorrect) {
+    radio.dataset.correct = "true";
+  }
+
+  // inseriamo radio + testo nella label
+  label.appendChild(radio);
+  label.append(" " + text);
+
+  // aggiungiamo la label all'array
+  answers.push(label);
+
+  return answers;
+}
+
+//stampa da domanda a schermo
+function showQuestion() {
+  quizContainer.innerHTML = ""; //azzera il testo delle domande
+
+  // stampa il testo della domanda corrente
+  const currentQuestion = questions[index];
+  qText.textContent = currentQuestion.question;
+
+  let answers = []; // array delle risposte
+
+  // crea la risposta corretta
+  createAnswer(questions[index].correct_answer, true, index, answers);
+
+  // crea tutte le risposte errate
+  questions[index].incorrect_answers.forEach((ans) => createAnswer(ans, false, index, answers));
+
+  // mescola le risposte e le stampa a schermo
+  shuffleArray(answers).forEach((answer) => quizContainer.appendChild(answer));
+}
+
+quizContainer.after(nextButton); // inserisce il bottone dopo il quiz
+
+nextButton.addEventListener("click", () => {
+  const selected = document.querySelector(`input[name="question-${index}"]:checked`); // radio button selezionato
+
+  if (!selected) {
+    alert("Seleziona una risposta!");
+    return; // ← QUESTO È FONDAMENTALE
+  }
+
+  // se la risposta è corretta
+  if (selected.dataset.correct === "true") {
+    points++;
+  }
+
+  index++; // incremento l'indice per passare alla domanda successiva
+
+  // se ci sono ancora domande
+  if (index < questions.length) {
+    showQuestion();
+  } else {
+    // fine quiz
+    qText.textContent = "Quiz terminato!";
+    quizContainer.innerHTML = "";
+    nextButton.disabled = true;
+
+    // punteggio visibile solo in console
+    console.log("Punteggio finale:", points);
+  }
+});
+
+//avvia il quiz
+window.onload = function () {
+  showQuestion();
 };

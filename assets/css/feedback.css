@@ -6,7 +6,7 @@ body {
   color: white;
   min-height: 56rem;
   font-family: "Outfit";
-  font-size: 30px;
+  font-size: 25px;
 }
 
 main,
@@ -23,9 +23,13 @@ header img {
 #stelle {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  text-align: center;
-  margin-left: 30rem;
-  margin-right: 30rem;
+  margin: 0 5em; /* l'ultimo valore andrebbe modificato per risoluzioni a schermo interno da pc web, tipo a 25em */
+  justify-items: center;
+  height: 80px;
+  cursor: pointer;
+}
+#stelle img {
+  filter: brightness(0) saturate(100%) invert(10%) sepia(15%) saturate(5924%) hue-rotate(211deg) brightness(91%) contrast(106%);
 }
 
 button {
