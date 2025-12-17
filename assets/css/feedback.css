@@ -6,7 +6,7 @@ body {
   color: white;
   min-height: 56rem;
   font-family: "Outfit";
-  font-size: 30px;
+  font-size: 25px;
 }
 
 main,
@@ -20,14 +20,20 @@ header img {
   margin-top: 3rem;
 }
 
-#stelle {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  text-align: center;
-  margin-left: 30rem;
-  margin-right: 30rem;
+.stella {
+  cursor: pointer;
+  color: #1e234d;
+  transition: color 0.2s;
 }
 
+.stella.attiva {
+  color: #00ffff;
+}
+
+.stella.hover:hover {
+  transform: scale(1.3);
+  color: #058484;
+}
 button {
   font-weight: bold;
   background-color: #00ffff;
