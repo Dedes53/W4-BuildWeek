@@ -21,5 +21,6 @@ var bar = new ProgressBar.Circle("#container", {
     circle.text.style.fontSize = "40px";
   },
 });
-// madonna
+//
+// speriamo funzioni
 bar.animate(1.0);
