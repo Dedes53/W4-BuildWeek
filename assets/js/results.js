@@ -1,5 +1,5 @@
 const points = localStorage.getItem("points");
-const totalQuestions = 6;
+const totalQuestions = 10;
 const correctAnswers = points;
 const wrongAnswers = totalQuestions - correctAnswers;
 
@@ -15,6 +15,6 @@ document.querySelector(".correct .answers").textContent = `${correctAnswers}/${t
 document.querySelector(".wrong .answers").textContent = `${wrongAnswers}/${totalQuestions} questions`;
 
 document.querySelector(".donut").style.background = `conic-gradient(
-      #00ffff 0deg ${correctPercent * 3.6}deg,
-      #c2188b ${correctPercent * 3.6}deg 360deg
+      #01ffff 0deg ${correctPercent * 3.6}deg,
+      #C2128D ${correctPercent * 3.6}deg 360deg
     )`;

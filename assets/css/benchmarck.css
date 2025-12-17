@@ -13,12 +13,10 @@ header img {
   margin-left: 5rem;
   margin-top: 3rem;
 }
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem 5rem;
+/*mauro*/
+#titolo {
+  font-size: 64px;
+  line-height: 0.9;
 }
 header img {
   width: 10rem;
@@ -29,10 +27,6 @@ header img {
   height: 150px;
   position: relative;
 }
-/*main {
-  margin: 5rem;
-  max-width: 3;
-}*/
 #question {
   color: white;
   font-weight: bold;
