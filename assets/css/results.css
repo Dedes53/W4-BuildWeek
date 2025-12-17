@@ -59,19 +59,22 @@ section h2 {
 }
 
 .donut {
-  text-align: center;
-}
-.donut {
   width: 280px;
   height: 280px;
   border-radius: 50%;
   background: conic-gradient(#00ffff 0deg 240deg, #c2188b 240deg 360deg);
+  padding: 1.5rem;
+}
 
-  align-items: center;
-  justify-content: center;
+.donut-center p:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .donut-center {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.4;
   width: 180px;
   height: 180px;
   background: #0b0c2a;
@@ -79,6 +82,7 @@ section h2 {
   text-align: center;
   padding: 1.5rem;
 }
+
 .highlight {
   color: aqua;
 }
