@@ -13,15 +13,19 @@ header img {
   margin-left: 5rem;
   margin-top: 3rem;
 }
-
+/*mauro*/
 #titolo {
   font-size: 64px;
   line-height: 0.9;
 }
-
-main {
-  margin: 5rem;
-  max-width: 3;
+header img {
+  width: 10rem;
+  margin: 0;
+}
+#container {
+  width: 150px;
+  height: 150px;
+  position: relative;
 }
 #question {
   color: white;
