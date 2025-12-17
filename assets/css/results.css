@@ -3,6 +3,7 @@ body {
   margin: 0;
   background-image: url(../bg.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
   color: white;
   font-family: "Outfit", sans-serif;
 }
@@ -40,16 +41,19 @@ section h2 {
 }
 
 .correct {
+  margin-top: 5rem;
   text-align: left;
 }
 
 .wrong {
+  margin-top: 5rem;
   text-align: right;
 }
 
 .percent {
+  line-height: 2.2rem;
   font-weight: 500;
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -59,42 +63,56 @@ section h2 {
 }
 
 .donut {
+  margin-top: 1rem;
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: conic-gradient(#00ffff 0deg 240deg, #c2188b 240deg 360deg);
-  padding: 1.5rem;
+  background: conic-gradient(#10ffff 0deg 240deg, #c2128d 240deg 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0rem 0rem 2rem 0.2rem #0000006a;
 }
 
 .donut-center p:first-child {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
+.donut-center p {
+  margin-top: 2rem;
+  font-weight: 200;
+  font-size: 0.7rem;
+  line-height: 1rem;
+}
+
 .donut-center {
+  background-image: url(../bg.jpg);
+  background-size: cover;
   font-size: 0.85rem;
   font-weight: 300;
-  line-height: 1.4;
-  width: 180px;
-  height: 180px;
-  background: #0b0c2a;
+  line-height: 1;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   text-align: center;
-  padding: 1.5rem;
 }
 
 .highlight {
   color: aqua;
+  font-weight: 500;
 }
 
 footer {
   text-align: center;
 }
-
+a {
+  color: white;
+  text-decoration: none;
+}
 button {
   font-family: "Outfit", sans-serif;
   font-weight: 500;
-  color: white;
   border-color: white;
   background-color: transparent;
   padding: 0.8rem;
@@ -103,6 +121,6 @@ button {
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.3s;
-  box-shadow: 0rem 0rem 0.5rem 0.5rem #00ffff0b;
-  margin-top: 2rem;
+  box-shadow: 0rem 0rem 1rem 0.1rem #10ffff24;
+  margin-top: 3rem;
 }
