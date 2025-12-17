@@ -1,8 +1,9 @@
 //timer
 // Inizializza il cerchio "già pronto"
-let time = 90;
+window.time = 90;
+window.count;
 
-var bar = new ProgressBar.Circle("#container", {
+bar = new ProgressBar.Circle("#container", {
   color: "white",
   strokeWidth: 10,
   trailColor: "#ada9a9ff",
@@ -19,6 +20,7 @@ var bar = new ProgressBar.Circle("#container", {
     var value = Math.round(circle.value() * time); // Calcola il numero
     circle.setText(time - value); // Mostra il countdown testuale
     circle.text.style.fontSize = "40px";
+    count = value;
   },
 });
 //
