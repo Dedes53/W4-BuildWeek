@@ -22,16 +22,25 @@ header img {
 #star-rating {
   display: inline-block;
   position: relative;
+  cursor: pointer;
 }
 
 #stelleVuote {
   position: absolute;
+  color: #222;
   /*  display: grid;
   grid-template-columns: repeat(10, 1fr); */
   /* margin: 0 5em; */ /* l'ultimo valore andrebbe modificato per risoluzioni a schermo interno da pc web, tipo a 25em */
   /* justify-items: center;
   height: 80px;
   cursor: pointer; */
+}
+
+#stellePiene {
+  overflow: hidden;
+  opacity: 80%; /* <-- SE NON VA JS prova a togliere         IMPORTANTE*/
+  white-space: nowrap;
+  width: 40%;
 }
 
 button {
