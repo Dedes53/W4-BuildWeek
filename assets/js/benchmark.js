@@ -189,8 +189,13 @@ nextButton.addEventListener("click", () => {
 
   if (!selected) {
     index++;
-    showQuestion();
-    startTimer(); //riavvia il timer
+    startTimer();
+    if (index < questions.length) {
+      showQuestion();
+    } else {
+      window.location.href = "results.html";
+      sendPoints(points);
+    }
     return;
   }
 
