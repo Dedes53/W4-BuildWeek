@@ -93,6 +93,10 @@ const questions = [
 let index = 0; //indice della domanda corrente
 let points = 0;
 
+//timer
+// const time = time.time;
+// console.log(time);
+
 // Mescola casualmente gli elementi di un array
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -151,20 +155,26 @@ nextButton.addEventListener("click", () => {
   const selected = document.querySelector(`input[name="question-${index}"]:checked`); // radio button selezionato
 
   if (!selected) {
-    alert("Seleziona una risposta!");
-    return; // ← QUESTO È FONDAMENTALE
+    index++;
+    showQuestion();
+    //funzione per resettare il timer
+    return;
   }
 
   // se la risposta è corretta
   if (selected.dataset.correct === "true") {
     points++;
   }
+  // if(timer finito){
+  // passa ad un altra domanda}
 
   index++; // incremento l'indice per passare alla domanda successiva
 
   // se ci sono ancora domande
   if (index < questions.length) {
     showQuestion();
+
+    //funzione per resettare il timer
   } else {
     // fine quiz
     qText.textContent = "Quiz terminato!";
