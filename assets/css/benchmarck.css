@@ -14,15 +14,25 @@ header img {
   margin-top: 3rem;
 }
 
-#titolo {
-  font-size: 64px;
-  line-height: 0.9;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 5rem;
 }
-
-main {
+header img {
+  width: 10rem;
+  margin: 0;
+}
+#container {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+/*main {
   margin: 5rem;
   max-width: 3;
-}
+}*/
 #question {
   color: white;
   font-weight: bold;
