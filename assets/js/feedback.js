@@ -1,45 +1,35 @@
-// AIAIU;
-// const stars = document.getElementById("star-rating");
-// console.log(stars);
+//creiamo una costante che ci permette di prendere le stelle una per una
+const stelle = document.querySelectorAll(".stella");
 
-// stars.addEventListener("click", function (event) {
-//   console.log("Eccolo qua");
-// });
-
-const primaStella = document.querySelector(".fas.fa-star.fa-lg.prima.stella");
-console.log(primaStella);
-
-primaStella.addEventListener("click", function (event) {
-  console.log("Ecco la prima stella");
+stelle.forEach((stella, i) => {
+  stella.addEventListener("mouseover", () => {
+    hoverStelle(i);
+  });
 });
 
-// const primaStella = document.getElementsByClassName(".fas fa-star fa-lg prima stella");
-// console.log(primaStella);
-
-// primaStella.addEventListener("click", function (event) {
-//   console.log("Ecco la prima stella");
-// });
-// const secondaStella = document.querySelector(".fas fa-star fa-lg seconda stella");
-// console.log(secondaStella);
-
-// secondaStella.addEventListener("click", function (event) {
-//   console.log("Ecco la seconda stella");
-// });
-
-// ____________________________
-// ________________________________________________________
-// _______________________________________________________________________________________________________________
-// ________________________________________________________
-// ____________________________
-
-// let starRatings = document.querySelectorAll("#star-rating");
-// for (let i = 0; i < starRatings.length; i++) {
-//   (starRatings = starRatings[i]),
-//     (stellePiene = starRatings.querySelector("#stellePiene")),
-//     (rating = parseFloat(starRatings.dataset.rating) || 0),
-//     (percentWidth = rating * 80);
-
-//   stellePiene.style.percentWidth = percentWidth + "%";
-// }
-// console.log(starRatings);
-// console.log(stellePiene);
+function hoverStelle(indiceCliccato) {
+  stelle.forEach((stella, i) => {
+    if (i <= indiceCliccato) {
+      stella.classList.add("hover");
+    } else {
+      stella.classList.remove("hover");
+    }
+  });
+}
+// facciamo un ciclo in cui possiamo toccare ogni stella e stampiamo in console il messaggio
+stelle.forEach((stella, i) => {
+  stella.addEventListener("click", () => {
+    console.log("Hai cliccato la stella numero:", +(i + 1));
+    accendiStelle(i); //fondamentale per richiamare la funzione nel momento in cui clicchaimo su una stella
+  });
+});
+//questa funzione ci serve per aggiungere la classe .attiva ogni volta che clicchiamo su una stella, e ci permette di illuminare ogni stella precedente a quella cliccata, tramite l'indice (i)
+function accendiStelle(indiceCliccato) {
+  stelle.forEach((stella, i) => {
+    if (i <= indiceCliccato) {
+      stella.classList.add("attiva");
+    } else {
+      stella.classList.remove("attiva");
+    }
+  });
+}
