@@ -20,18 +20,20 @@ header img {
   margin-top: 3rem;
 }
 
-#stelle {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  margin: 0 5em; /* l'ultimo valore andrebbe modificato per risoluzioni a schermo interno da pc web, tipo a 25em */
-  justify-items: center;
-  height: 80px;
+.stella {
   cursor: pointer;
-}
-#stelle img {
-  filter: brightness(0) saturate(100%) invert(10%) sepia(15%) saturate(5924%) hue-rotate(211deg) brightness(91%) contrast(106%);
+  color: #1e234d;
+  transition: color 0.2s;
 }
 
+.stella.attiva {
+  color: #00ffff;
+}
+
+.stella.hover:hover {
+  transform: scale(1.3);
+  color: #058484;
+}
 button {
   font-weight: bold;
   background-color: #00ffff;

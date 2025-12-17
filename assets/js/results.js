@@ -1,5 +1,6 @@
+const points = localStorage.getItem("points");
 const totalQuestions = 6;
-const correctAnswers = 5;
+const correctAnswers = points;
 const wrongAnswers = totalQuestions - correctAnswers;
 
 const correctPercent = (correctAnswers / totalQuestions) * 100;
