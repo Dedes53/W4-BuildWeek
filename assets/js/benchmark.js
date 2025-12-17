@@ -1,5 +1,7 @@
 //implementare funzioni timer: reset alla nuova domanda e passaggio alla domanda successiva se scaduto.
-
+window.addEventListener("unhandledrejection", (event) => {
+  event.preventDefault();
+});
 //riferimenti al dom
 const qText = document.getElementById("question"); //domanda
 const quizContainer = document.getElementById("quiz"); //risposte
@@ -94,9 +96,40 @@ let index = 0; //indice della domanda corrente
 let points = 0;
 
 //timer
-// const time = time.time;
-// console.log(time);
+//timer
+// Inizializza il cerchio "già pronto"
+const time = 90;
+let bar;
 
+function startTimer() {
+  bar.stop(); //IMP! bisogna prima fermare l'animazione e poi richiamrla di nuovo
+  // bar.destroy?.();
+  bar.set(0); //graficamente
+  bar.animate(1.0); //logicamente
+}
+
+bar = new ProgressBar.Circle("#container", {
+  color: "white",
+  strokeWidth: 10,
+  trailColor: "#ada9a9ff",
+  trailWidth: 10,
+  easing: "linear",
+  duration: time * 1000,
+  text: { autoStyleContainer: false },
+  from: { color: "#9B1D8E", width: 6 },
+  to: { color: "#b71b00ff", width: 6 },
+  step: function (state, circle) {
+    circle.path.setAttribute("stroke", state.color);
+    const value = Math.round(circle.value() * time);
+    circle.setText(time - value);
+    circle.text.style.fontSize = "40px";
+  },
+});
+//
+// speriamo funzioni
+
+//
+//
 // Mescola casualmente gli elementi di un array
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -157,13 +190,14 @@ nextButton.addEventListener("click", () => {
   if (!selected) {
     index++;
     showQuestion();
-    //funzione per resettare il timer
+    startTimer(); //riavvia il timer
     return;
   }
 
   // se la risposta è corretta
   if (selected.dataset.correct === "true") {
     points++;
+    startTimer(); //riavvia
   }
   // if(timer finito){
   // passa ad un altra domanda}
@@ -173,13 +207,13 @@ nextButton.addEventListener("click", () => {
   // se ci sono ancora domande
   if (index < questions.length) {
     showQuestion();
-
-    //funzione per resettare il timer
+    startTimer(); //riavvia
   } else {
-    // fine quiz
-    qText.textContent = "Quiz terminato!";
-    quizContainer.innerHTML = "";
-    nextButton.disabled = true;
+    // FINE QUIZ
+    // qText.textContent = "Quiz terminato!";
+    // quizContainer.innerHTML = "";
+    // nextButton.disabled = true;
+    window.location.href = "results.html";
 
     // punteggio visibile solo in console
     console.log("Punteggio finale:", points);
@@ -194,4 +228,5 @@ function sendPoints(points) {
 //avvia il quiz
 window.onload = function () {
   showQuestion();
+  startTimer();
 };
