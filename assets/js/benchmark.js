@@ -183,8 +183,13 @@ nextButton.addEventListener("click", () => {
 
     // punteggio visibile solo in console
     console.log("Punteggio finale:", points);
+    sendPoints(points);
   }
 });
+
+function sendPoints(points) {
+  localStorage.setItem("points", points);
+}
 
 //avvia il quiz
 window.onload = function () {
