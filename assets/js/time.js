@@ -14,14 +14,14 @@ function TIMER() {
     console.log("tempo scaduto");
   }
 }
-// Inizializza il cerchio "già pronto"
+
 var bar = new ProgressBar.Circle("#container", {
   color: "#00d2ff",
-  strokeWidth: 6,
+  strokeWidth: 10,
   trailColor: "#333",
-  trailWidth: 1,
+  trailWidth: 10,
   easing: "linear",
-  duration: 100000, // Durata in millisecondi (10 secondi)
+  duration: 900000, // Durata in millisecondi (10 secondi)
   text: {
     autoStyleContainer: false,
   },
@@ -30,7 +30,7 @@ var bar = new ProgressBar.Circle("#container", {
   step: function (state, circle) {
     circle.path.setAttribute("stroke", state.color);
     var value = Math.round(circle.value() * 10); // Calcola il numero
-    circle.setText(10 - value); // Mostra il countdown testuale
+    circle.setText(90 - value); // Mostra il countdown testuale
   },
 });
 
