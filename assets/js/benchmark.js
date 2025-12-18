@@ -95,7 +95,7 @@ let index = 0; //indice della domanda corrente
 let points = 0;
 
 //timer
-const time = 10;
+const time = 1000;
 let bar;
 
 // === TIMER ===
