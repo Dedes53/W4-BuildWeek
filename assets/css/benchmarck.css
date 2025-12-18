@@ -61,3 +61,7 @@ button:hover {
   transform: scale(1.1);
   box-shadow: 0px 0px 5px 5px #00ffff;
 }
+#Ndomanda {
+  font-size: 30px;
+  text-align: center;
+}
