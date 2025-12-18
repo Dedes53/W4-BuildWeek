@@ -1,11 +1,10 @@
-//implementare funzioni timer: reset alla nuova domanda e passaggio alla domanda successiva se scaduto.
 window.addEventListener("unhandledrejection", (event) => {
   event.preventDefault();
 });
 //riferimenti al dom
 const qText = document.getElementById("question"); //domanda
 const quizContainer = document.getElementById("quiz"); //risposte
-const nextButton = document.getElementById("confirm"); //pulsante di conferma
+const enter = document.getElementById("confirm"); //pulsante di conferma
 
 //domande
 const questions = [
@@ -96,14 +95,12 @@ let index = 0; //indice della domanda corrente
 let points = 0;
 
 //timer
-//timer
-// Inizializza il cerchio "già pronto"
-const time = 90;
+const time = 10;
 let bar;
 
+// === TIMER ===
 function startTimer() {
-  bar.stop(); //IMP! bisogna prima fermare l'animazione e poi richiamrla di nuovo
-  // bar.destroy?.();
+  bar.stop(); //IMP! bisogna prima fermare l'animazione e poi richiamrla di nuovo (probailmente non cambia nulla in merito all'errore in console)
   bar.set(0); //graficamente
   bar.animate(1.0); //logicamente
 }
@@ -111,8 +108,7 @@ function startTimer() {
 bar = new ProgressBar.Circle("#container", {
   color: "white",
   strokeWidth: 10,
-  // trailColor: "#ada9a9ff",
-  trailColor: "#070a22ff",
+  trailColor: "#ada9a9ff",
   trailWidth: 10,
   easing: "linear",
   duration: time * 1000,
@@ -124,13 +120,28 @@ bar = new ProgressBar.Circle("#container", {
     const value = Math.round(circle.value() * time);
     circle.setText(time - value);
     circle.text.style.fontSize = "40px";
+    if (value === time) {
+      nextQuestion();
+    }
   },
 });
-//
 // speriamo funzioni
 
-//
-//
+// === GESTIONE DEL QUIZ ===
+
+// funzione per passare alla domanda successiva
+function nextQuestion() {
+  index++;
+  if (index < questions.length) {
+    showQuestion();
+    startTimer();
+  } else {
+    window.location.href = "results.html";
+    console.log("Punteggio finale:", points);
+    sendPoints(points);
+  }
+}
+
 // Mescola casualmente gli elementi di un array
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -147,8 +158,7 @@ function createAnswer(text, isCorrect, index, answers) {
   radio.name = "question-" + index; //forse superfluo
   radio.value = text;
 
-  // se è la risposta corretta,
-  // aggiungiamo un data-attribute
+  // aggiungiamo un data-attribute se è la risposta corretta
   if (isCorrect) {
     radio.dataset.correct = "true";
   }
@@ -183,55 +193,28 @@ function showQuestion() {
   shuffleArray(answers).forEach((answer) => quizContainer.appendChild(answer));
 }
 
-quizContainer.after(nextButton); // inserisce il bottone dopo il quiz
-
-nextButton.addEventListener("click", () => {
+// cosa succede al click del bottone
+enter.addEventListener("click", () => {
   const selected = document.querySelector(`input[name="question-${index}"]:checked`); // radio button selezionato
 
   if (!selected) {
-    index++;
-    startTimer();
-    if (index < questions.length) {
-      showQuestion();
-    } else {
-      window.location.href = "results.html";
-      sendPoints(points);
-    }
+    nextQuestion();
     return;
   }
 
   // se la risposta è corretta
   if (selected.dataset.correct === "true") {
     points++;
-    startTimer(); //riavvia
   }
-  // if(timer finito){
-  // passa ad un altra domanda}
 
-  index++; // incremento l'indice per passare alla domanda successiva
-
-  // se ci sono ancora domande
-  if (index < questions.length) {
-    showQuestion();
-    startTimer(); //riavvia
-  } else {
-    // FINE QUIZ
-    // qText.textContent = "Quiz terminato!";
-    // quizContainer.innerHTML = "";
-    // nextButton.disabled = true;
-    window.location.href = "results.html";
-
-    // punteggio visibile solo in console
-    console.log("Punteggio finale:", points);
-    sendPoints(points);
-  }
+  nextQuestion();
 });
 
 function sendPoints(points) {
   localStorage.setItem("points", points);
 }
 
-//avvia il quiz
+//=== AVVIO DEL QUIZ ===
 window.onload = function () {
   showQuestion();
   startTimer();
