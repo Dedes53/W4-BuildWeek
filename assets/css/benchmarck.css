@@ -65,14 +65,15 @@ label:hover {
   transform: scale(1.1);
 }
 
-/* input {
-  display: none;   <--- RICORDA DI TOGLIERE IL COMMENTO <---
-} */
+input {
+  display: none;
+}
 
-input[type="radio"]:checked label {
-  background-color: red;
-  border-color: red;
-  color: red;
+label:has(input[type="radio"]:checked) {
+  background: linear-gradient(180deg, rgba(201, 0, 145, 1) 0%, rgba(138, 0, 121, 1) 90%);
+  opacity: 80%;
+  transform: scale(1.1);
+  border-color: #8d046f;
 }
 
 button {
