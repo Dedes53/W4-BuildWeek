@@ -108,7 +108,8 @@ function startTimer() {
 bar = new ProgressBar.Circle("#container", {
   color: "white",
   strokeWidth: 10,
-  trailColor: "#ada9a9ff",
+  trailColor: "#090d2cff",
+  // trailColor: "#ada9a9ff",
   trailWidth: 10,
   easing: "linear",
   duration: time * 1000,
