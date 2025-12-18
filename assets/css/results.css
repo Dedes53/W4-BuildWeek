@@ -99,8 +99,14 @@ section h2 {
 }
 
 .highlight {
-  color: aqua;
+  color: #10ffff;
   font-weight: 500;
+}
+
+.redlight {
+  color: #c2128d;
+  font-weight: 500;
+  line-height: 1rem;
 }
 
 footer {
