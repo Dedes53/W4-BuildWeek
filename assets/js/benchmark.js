@@ -128,7 +128,7 @@ bar = new ProgressBar.Circle("#container", {
 });
 // speriamo funzioni
 
-const N = 3;
+const N = localStorage.getItem("Nindex");
 localStorage.setItem("N", N);
 // === GESTIONE DEL QUIZ ===
 
