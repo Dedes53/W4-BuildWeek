@@ -1,21 +1,24 @@
 //Gestione livelli (Extra)
 let Nindex;
 const livelli = document.getElementById("levels");
-const check = document.getElementById("checkrequired");
+const check = document.getElementById("checkRequired");
 
-livelli.addEventListener("change", () => {
-  const difficultvalue = livelli.value;
-  console.log(difficultvalue);
-});
+function updateLevel() {
+  const selectedValue = livelli.value;
+  check.textContent = selectedValue;
+  console.log("Selected level:", selectedValue);
 
-if (livelli.value === "Easy") {
-  Nindex = 3;
-  console.log(Nindex);
-} else if (livelli.value === "Medium") {
-  Nindex = 6;
-} else if (livelli.value === "Hard") {
-  Nindex = 10;
+  if (selectedValue === "Easy") {
+    Nindex = 3;
+  } else if (selectedValue === "Medium") {
+    Nindex = 6;
+  } else if (selectedValue === "Hard") {
+    Nindex = 10;
+  }
+
+  console.log("Nindex:", Nindex);
+  localStorage.setItem("Nindex", Nindex);
 }
-console.log(livelli.value);
 
-localStorage.setItem("Nindex", Nindex);
+livelli.addEventListener("change", updateLevel);
+updateLevel();
