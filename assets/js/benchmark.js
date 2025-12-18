@@ -95,7 +95,7 @@ let index = 0; //indice della domanda corrente
 let points = 0;
 
 //timer
-const time = 10;
+const time = 1000;
 let bar;
 
 // === TIMER ===
@@ -173,7 +173,7 @@ function createAnswer(text, isCorrect, index, answers) {
 
   return answers;
 }
-
+const Ndomanda = document.getElementById("Ndomanda");
 //stampa da domanda a schermo
 function showQuestion() {
   quizContainer.innerHTML = ""; //azzera il testo delle domande
@@ -181,6 +181,9 @@ function showQuestion() {
   // stampa il testo della domanda corrente
   const currentQuestion = questions[index];
   qText.textContent = currentQuestion.question;
+
+  // aggiorna conta domande
+  Ndomanda.textContent = `Question ${index + 1} / ${questions.length}`;
 
   let answers = []; // array delle risposte
 
