@@ -332,7 +332,7 @@ localStorage.setItem("N", N.toString());
 let index = 0;
 let points = 0;
 
-// TIMER
+// timer
 const time = 90;
 let bar;
 
@@ -464,7 +464,7 @@ function saveQuizResult(username, score, totalQuestions, difficulty) {
   localStorage.setItem(key, JSON.stringify(results));
 }
 
-// AVVIO
+// avvio del quiz
 window.onload = function () {
   index = 0;
   showQuestion();

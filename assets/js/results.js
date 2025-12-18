@@ -39,7 +39,6 @@
 //       and try again. </p>`;
 // }
 
-// Legge il punteggio dal localStorage, calcola percentuali e mostra lo storico dell'utente.
 // Punteggio e numero di domande
 const points = Number(localStorage.getItem("points")) || 0;
 const N = Number(localStorage.getItem("N")) || 10;
@@ -47,7 +46,6 @@ const N = Number(localStorage.getItem("N")) || 10;
 // Utente corrente (salvato in index.js)
 const currentUser = localStorage.getItem("currentUser");
 
-// Calcoli base
 const totalQuestions = N;
 const correctAnswers = points;
 const wrongAnswers = totalQuestions - correctAnswers;
@@ -55,23 +53,19 @@ const wrongAnswers = totalQuestions - correctAnswers;
 const correctPercent = (correctAnswers / totalQuestions) * 100;
 const wrongPercent = 100 - correctPercent;
 
-// Aggiorna percentuali nel DOM
 document.querySelector(".correct .percent").textContent = correctPercent.toFixed(1) + "%";
 
 document.querySelector(".wrong .percent").textContent = wrongPercent.toFixed(1) + "%";
 
-// Aggiorna conteggio risposte corrette/sbagliate
 document.querySelector(".correct .answers").textContent = `${correctAnswers}/${totalQuestions} questions`;
 
 document.querySelector(".wrong .answers").textContent = `${wrongAnswers}/${totalQuestions} questions`;
 
-// Aggiorna grafico donut
 document.querySelector(".donut").style.background = `conic-gradient(
   #01ffff 0deg ${correctPercent * 3.6}deg,
   #C2128D ${correctPercent * 3.6}deg 360deg
 )`;
 
-// Messaggio al centro del donut
 const donutCenter = document.querySelector(".donut-center");
 
 if (correctPercent >= 60) {

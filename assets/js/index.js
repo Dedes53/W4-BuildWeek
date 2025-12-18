@@ -63,7 +63,7 @@ proceedBtn.addEventListener("click", () => {
     N = 10;
   }
 
-  // Salvo N per benchmark.js e results.js
+  // Salvo N per benchmark e results
   localStorage.setItem("N", N.toString());
 
   // Inizializzo lo storico dell'utente se non esiste
