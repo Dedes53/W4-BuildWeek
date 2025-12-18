@@ -1,5 +1,7 @@
 const points = localStorage.getItem("points");
-const totalQuestions = 10;
+const N = localStorage.getItem("N"); //trasferita
+
+const totalQuestions = N;
 const correctAnswers = points;
 const wrongAnswers = totalQuestions - correctAnswers;
 

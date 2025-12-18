@@ -128,12 +128,15 @@ bar = new ProgressBar.Circle("#container", {
 });
 // speriamo funzioni
 
+const N = 3;
+localStorage.setItem("N", N);
 // === GESTIONE DEL QUIZ ===
 
 // funzione per passare alla domanda successiva
 function nextQuestion() {
   index++;
-  if (index < questions.length) {
+  if (index < N) {
+    // question.lenght sostituito da N
     showQuestion();
     startTimer();
   } else {
@@ -183,7 +186,7 @@ function showQuestion() {
   qText.textContent = currentQuestion.question;
 
   // aggiorna conta domande
-  Ndomanda.textContent = `Question ${index + 1} / ${questions.length}`;
+  Ndomanda.textContent = `Question ${index + 1} / ${N}`; // N al posto di question.length
 
   let answers = []; // array delle risposte
 
