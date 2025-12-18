@@ -193,6 +193,7 @@ function showQuestion() {
   shuffleArray(answers).forEach((answer) => quizContainer.appendChild(answer));
 }
 
+// cosa succede al click del bottone
 enter.addEventListener("click", () => {
   const selected = document.querySelector(`input[name="question-${index}"]:checked`); // radio button selezionato
 
