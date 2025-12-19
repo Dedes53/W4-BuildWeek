@@ -76,9 +76,6 @@ label:has(input[type="radio"]:checked) {
 }
 
 button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
   margin-left: 66%;
   font-weight: bold;
   background-color: #00ffff;
