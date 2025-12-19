@@ -113,6 +113,10 @@ section h2 {
   line-height: 1rem;
 }
 
+.donut-center div {
+  margin-top: 0.5rem;
+}
+
 .spaziatura {
   padding-top: 2rem;
 }
