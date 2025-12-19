@@ -32,7 +32,7 @@ if (correctPercent >= 60) {
       promotions / spam folder) </p></div>`;
 } else {
   donutCenter.innerHTML = `
-     <p> We're sorry!</p> <b class="redlight">You didn't pass the exam.</b><br />
+     <div class="spaziatura"><p> We're sorry!</p></div> <b class="redlight">You didn't pass the exam.</b><br />
       
       <div>Review the material<br />
       and try again. </p></div>`;
