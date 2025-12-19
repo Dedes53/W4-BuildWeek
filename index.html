@@ -27,19 +27,22 @@
         </ul>
       </article>
       <footer>
-        <form action="./benchmark.html">
-          <!-- dentro il form è VIETATO mettere l'ancora (<a href=""></a>) - bisogna usare "action" che ha funzione di ancora per i form -->
+        <form id="start-form">
+          <label>
+            <input id="checkRequired" type="checkbox" required />
+            <b>I promise to answer myself without help from anyone</b>
+          </label>
 
-          <label><input id="checkRequired" type="checkbox" required /><b>I promise to answer myself without help from anyone</b></label>
-          <button>PROCEED</button>
-          <div id="selezionaDifficolta">
-            <label for="Difficul">Seleziona difficoltà</label>
-            <select name="difficult" id="levels">
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
-            </select>
-          </div>
+          <label for="levels">Seleziona difficoltà</label>
+          <select name="difficult" id="levels">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+
+          <input type="text" id="user" placeholder="enter your name" required />
+
+          <button id="proceed" type="button">PROCEED</button>
         </form>
       </footer>
     </main>
