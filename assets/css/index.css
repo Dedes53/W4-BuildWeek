@@ -92,6 +92,27 @@ b {
   color: #c2128d;
   border: 2px solid white;
   padding: 0.2em;
-
   font-size: 16px;
+}
+
+#user {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+
+#user::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#user:focus {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
