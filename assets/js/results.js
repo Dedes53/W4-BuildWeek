@@ -1,4 +1,5 @@
 const points = localStorage.getItem("points");
+
 const totalQuestions = 10;
 const correctAnswers = points;
 const wrongAnswers = totalQuestions - correctAnswers;
@@ -24,15 +25,15 @@ const donutCenter = document.querySelector(".donut-center");
 if (correctPercent >= 60) {
   donutCenter.innerHTML = `
      <p> Congratulations! <b class="highlight"><br />You passed the exam.</b></p>
-     <p>
+     <div><p>
       We'll send you the certificate<br />
       in few minutes.<br />
       Check your email (including<br />
-      promotions / spam folder) </p>`;
+      promotions / spam folder) </p></div>`;
 } else {
   donutCenter.innerHTML = `
      <p> We're sorry!</p> <b class="redlight">You didn't pass the exam.</b><br />
       
-      Review the material<br />
-      and try again. </p>`;
+      <div>Review the material<br />
+      and try again. </p></div>`;
 }

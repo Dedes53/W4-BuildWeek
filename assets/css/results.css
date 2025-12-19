@@ -79,6 +79,10 @@ section h2 {
   font-weight: 600;
 }
 
+.donut-center div {
+  margin-top: 1rem;
+}
+
 .donut-center p {
   margin-top: 2rem;
   font-weight: 200;
