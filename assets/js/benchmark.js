@@ -20,7 +20,7 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -95,7 +95,7 @@ let index = 0; //indice della domanda corrente
 let points = 0;
 
 //timer
-const time = 1000;
+const time = 90;
 let bar;
 
 // === TIMER ===
@@ -128,12 +128,15 @@ bar = new ProgressBar.Circle("#container", {
 });
 // speriamo funzioni
 
+const N = localStorage.getItem("Nindex");
+localStorage.setItem("N", N);
 // === GESTIONE DEL QUIZ ===
 
 // funzione per passare alla domanda successiva
 function nextQuestion() {
   index++;
-  if (index < questions.length) {
+  if (index < N) {
+    // question.lenght sostituito da N
     showQuestion();
     startTimer();
   } else {
@@ -183,7 +186,7 @@ function showQuestion() {
   qText.textContent = currentQuestion.question;
 
   // aggiorna conta domande
-  Ndomanda.textContent = `Question ${index + 1} / ${questions.length}`;
+  Ndomanda.textContent = `Question ${index + 1} / ${N}`; // N al posto di question.length
 
   let answers = []; // array delle risposte
 
