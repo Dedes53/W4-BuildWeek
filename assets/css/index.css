@@ -14,17 +14,19 @@ header img {
 }
 
 #titolo {
-  font-size: 64px;
+  font-size: 60px;
   line-height: 0.9;
 }
 
 h2 {
   color: #c2128d;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
 }
-
+p {
+  font-size: 15px;
+}
 main {
   margin: 5rem;
   max-width: 3;
@@ -72,4 +74,24 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+b {
+  padding-left: 0.4em;
+}
+
+#selezionaDifficolta {
+  display: inline;
+  padding-left: 1em;
+}
+#selezionaDifficolta label {
+  padding-right: 0.5em;
+}
+
+#selezionaDifficolta select {
+  background-color: transparent;
+  color: #c2128d;
+  border: 2px solid white;
+  padding: 0.2em;
+
+  font-size: 16px;
 }
