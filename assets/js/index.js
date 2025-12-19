@@ -37,13 +37,13 @@ const userInput = document.getElementById("user");
 
 proceedBtn.addEventListener("click", () => {
   if (!checkbox.checked) {
-    alert("Devi accettare la promessa prima di procedere.");
+    alert("You have to accept the promise before proceeding.");
     return;
   }
 
   const username = userInput.value.trim();
   if (!username) {
-    alert("Inserisci il tuo nome.");
+    alert("Insert your name.");
     return;
   }
 
