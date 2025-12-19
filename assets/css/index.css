@@ -79,19 +79,11 @@ b {
   padding-left: 0.4em;
 }
 
-#selezionaDifficolta {
-  display: inline;
-  padding-left: 1em;
-}
-#selezionaDifficolta label {
-  padding-right: 0.5em;
-}
-
-#selezionaDifficolta select {
+#levels {
   background-color: transparent;
   color: #c2128d;
   border: 2px solid white;
-  padding: 0.2em;
+  padding: 0.4em 0.6em;
   font-size: 16px;
 }
 
