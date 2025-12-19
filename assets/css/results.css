@@ -113,12 +113,21 @@ section h2 {
   line-height: 1rem;
 }
 
+.spaziatura {
+  padding-top: 2rem;
+}
+
 footer {
   text-align: center;
 }
 a {
   color: white;
   text-decoration: none;
+}
+
+footer div {
+  display: inline;
+  padding: 0 0.7em;
 }
 button {
   font-family: "Outfit", sans-serif;
@@ -133,4 +142,11 @@ button {
   transition: transform 0.3s;
   box-shadow: 0rem 0rem 1rem 0.1rem #10ffff24;
   margin-top: 3rem;
+}
+
+#ripetiTest {
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  border-color: transparent;
+  background-color: #c2128d;
 }
