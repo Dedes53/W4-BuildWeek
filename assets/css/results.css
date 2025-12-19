@@ -150,3 +150,11 @@ button {
   border-color: transparent;
   background-color: #c2128d;
 }
+
+ul {
+  margin-bottom: 2rem;
+}
+li {
+  margin-top: 5rem;
+  text-align: left;
+}
